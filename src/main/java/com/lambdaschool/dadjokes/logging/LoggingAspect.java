@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 @Aspect
 public class LoggingAspect
 {
-    @Around(value = "@within(com.lambdaschool.starthere.logging.Loggable) || @annotation(com.lambdaschool.starthere.logging.Loggable)")
+    @Around(value = "@within(com.lambdaschool.dadjokes.logging.Loggable) || @annotation(com.lambdaschool.dadjokes.logging.Loggable)")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable
     {
 
