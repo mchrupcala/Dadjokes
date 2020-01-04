@@ -24,8 +24,9 @@ public class Joke extends Auditable {
     private boolean isprivate;
 
     @ManyToOne
-    @JoinColumn(name = "userid",
-            nullable = false)
+    @JoinColumn(name = "userid"
+//            nullable = false
+    )
     @JsonIgnoreProperties("jokes")
     private User user;
 
@@ -33,14 +34,20 @@ public class Joke extends Auditable {
     {
     }
 
-    public Joke(User user,
-                     String jokequestion,
-                    String jokeanswer, boolean isprivate)
+    public Joke(String jokequestion,
+                    String jokeanswer, boolean isprivate, User user)
     {
         this.jokequestion = jokequestion;
         this.jokeanswer = jokeanswer;
         this.isprivate = isprivate;
         this.user = user;
+    }
+
+    public Joke(String jokequestion,
+                String jokeanswer, boolean isprivate) {
+        this.jokequestion = jokequestion;
+        this.jokeanswer = jokeanswer;
+        this.isprivate = isprivate;
     }
 
     public long getJokeid() {

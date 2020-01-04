@@ -7,11 +7,13 @@ import com.lambdaschool.dadjokes.models.Joke;
 import com.lambdaschool.dadjokes.repository.JokeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Transactional
 @Loggable
 @Service(value = "jokeService")
 public class JokeServiceImpl implements JokeService {
@@ -41,6 +43,7 @@ public class JokeServiceImpl implements JokeService {
         jokerepos.deleteById(id);
     }
 
+    @Transactional
     @Override
     public Joke save(Joke joke) {
         Joke newJoke = new Joke();
